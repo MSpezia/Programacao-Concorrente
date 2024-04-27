@@ -16,7 +16,7 @@ public class Loja {
 	public void pagarSalario() {
 		if(contaLoja.getSaldo() >= 1400) {
 			for(Funcionario funcionario : funcionarios) {
-				if (!funcionario.foiPago()) {
+				if (!funcionario.isFoiPago()) {
 	                banco.transferir(contaLoja, funcionario.getContaFuncionario(), contaLoja.getSaldo() >= 1400? 1400 : contaLoja.getSaldo());
 	                funcionario.receberSalario();
 	            }

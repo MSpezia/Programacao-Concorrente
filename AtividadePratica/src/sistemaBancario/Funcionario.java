@@ -15,12 +15,13 @@ public class Funcionario extends Thread{
 	
 	public void receberSalario() {
 		double valorInvestimento = contaFuncionario.getSaldo() * 0.2;
+		System.out.println(contaFuncionario.getSaldo());
 		banco.transferir(contaFuncionario, contaInvestimento, valorInvestimento);
 		foiPago = true;
 	}
 	
 	
-	public boolean foiPago() {
+	public boolean isFoiPago() {
 		return foiPago;
 	}
 

@@ -14,17 +14,27 @@ public class Cliente extends Thread{
 	
 	public void run() {
         while (true) {
-            double valor = Math.random() < 0.5 ? 100 : 200;
-            if(i == 0) {
-            	banco.transferir(contaCliente, lojas[i].getContaLoja(), valor);
-            	i++;
-            }else {
-            	banco.transferir(contaCliente, lojas[i].getContaLoja(), valor);
-            	i--;
-            }
-            if (contaCliente.getSaldo() <= 0) break;
+        	if (contaCliente.getSaldo() > 0) {
+        		double valor = Math.random() < 0.5 ? 100 : 200;
+        		if(valor > contaCliente.getSaldo()) valor =  contaCliente.getSaldo();
+            	if(i == 0) {
+            		banco.transferir(contaCliente, lojas[i].getContaLoja(), valor);
+            		i++;
+            	}else {
+            		banco.transferir(contaCliente, lojas[i].getContaLoja(), valor);
+            		i--;
+            	}
+        	}else break;
         }
     }
+
+	public Conta getContaCliente() {
+		return contaCliente;
+	}
+
+	public void setContaCliente(Conta contaCliente) {
+		this.contaCliente = contaCliente;
+	}
 	
 	
 }
