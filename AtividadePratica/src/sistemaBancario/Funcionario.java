@@ -1,6 +1,6 @@
 package sistemaBancario;
 
-public class Funcionario {
+public class Funcionario extends Thread{
 
 	private Conta contaFuncionario;
 	
