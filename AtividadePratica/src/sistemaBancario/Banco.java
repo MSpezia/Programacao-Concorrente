@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Banco {
     private final Lock lock = new ReentrantLock();
 
-    private Banco() {}
+    public Banco() {}
 
 
     public void transferir(Conta origem, Conta destino, double valor) {

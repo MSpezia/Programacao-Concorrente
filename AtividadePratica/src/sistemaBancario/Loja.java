@@ -2,14 +2,13 @@ package sistemaBancario;
 
 public class Loja {
 	
-	private Conta conta;
-	int i;
+	private Conta contaLoja;
 	
 	
 	public void pagarSalario() {
-		if(conta.getSaldo() >= 1400) {
+		if(contaLoja.getSaldo() >= 1400) {
 			
-			
+
 			
 		}
 	}
