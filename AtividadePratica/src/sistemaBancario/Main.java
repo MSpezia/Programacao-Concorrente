@@ -5,9 +5,17 @@ public class Main {
 		
 		Banco banco = new Banco();
 		
+		Funcionario[] funcionarios = new Funcionario[4];
+		
+		for(int i = 0; i < 4; i++) {
+			funcionarios[i] = new Funcionario(new Conta("Funcionario " + (i+1), 0), new Conta("Funcionario " + (i+1), 0), banco);
+			funcionarios[i].start();
+		}
+		
+		
 		Loja[] lojas = {
-				new Loja(new Conta("Loja 1", 0)),
-				new Loja(new Conta("Loja 2", 0))
+				new Loja(new Conta("Loja 1", 0),banco, funcionarios),
+				new Loja(new Conta("Loja 2", 0),banco, funcionarios)
 		};
 		
 		Cliente[] clientes = new Cliente[5];
@@ -17,13 +25,9 @@ public class Main {
 			clientes[i].start();
 		}
 		
-		Funcionario[] funcionarios = new Funcionario[4];
+
 		
-		for(int i = 0; i < 4; i++) {
-			funcionarios[i] = new Funcionario(new Conta("Funcionario " + i, 0));
-			funcionarios[i].start();
-		}
-		
+
 		
 		
 		
