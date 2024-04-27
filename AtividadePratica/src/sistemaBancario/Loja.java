@@ -12,9 +12,19 @@ public class Loja {
 	public void pagarSalario() {
 		if(contaLoja.getSaldo() >= 1400) {
 			
-
+			
 			
 		}
+	}
+
+
+	public Conta getContaLoja() {
+		return contaLoja;
+	}
+
+
+	public void setContaLoja(Conta contaLoja) {
+		this.contaLoja = contaLoja;
 	}
 
 	

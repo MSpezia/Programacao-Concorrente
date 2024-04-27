@@ -13,7 +13,7 @@ public class Main {
 		Cliente[] clientes = new Cliente[5];
 		
 		for(int i = 0; i < 5; i++) {
-			clientes[i] = new Cliente(new Conta("Cliente " + i, 1000));
+			clientes[i] = new Cliente(new Conta("Cliente " + (i+1), 1000),banco ,lojas);
 			clientes[i].start();
 		}
 		

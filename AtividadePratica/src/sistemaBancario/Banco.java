@@ -12,8 +12,8 @@ public class Banco {
     public void transferir(Conta origem, Conta destino, double valor) {
         lock.lock();
         try {
-            origem.depositar(valor);
-            destino.sacar(valor);
+            origem.sacar(valor);
+            destino.depositar(valor);
             System.out.println("Transferência de R$ " + valor + " de " + origem.getTitular() + " para " + destino.getTitular());
         } finally {
             lock.unlock();
