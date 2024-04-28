@@ -12,13 +12,12 @@ public class Loja {
 		this.funcionarios = funcionarios;
 	}
 	
-	
+	//Sistema para pagar os funcionários
 	public void pagarSalario() {
-		if(contaLoja.getSaldo() >= 1400) {
-			for(Funcionario funcionario : funcionarios) {
+		for(Funcionario funcionario : funcionarios) {
+			if(contaLoja.getSaldo() >= 1400) {
 				if (!funcionario.isFoiPago()) {
-	                banco.transferir(contaLoja, funcionario.getContaFuncionario(), contaLoja.getSaldo() >= 1400? 1400 : contaLoja.getSaldo());
-	                funcionario.receberSalario();
+					banco.transferir(contaLoja, funcionario.getContaFuncionario(), 1400);
 	            }
 			}
 			

@@ -12,7 +12,8 @@ public class Cliente extends Thread{
 		this.lojas = lojas;
 	}
 	
-	public void run() {
+	//Sistema que gasta o dinheiro do Cliente nas lojas
+	public  void run() {
         while (true) {
         	if (contaCliente.getSaldo() > 0) {
         		double valor = Math.random() < 0.5 ? 100 : 200;

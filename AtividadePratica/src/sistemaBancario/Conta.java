@@ -14,7 +14,7 @@ public class Conta {
     }
 
     public synchronized void sacar(double valor) {
-            saldo -= valor;
+    	saldo -= valor;
     }
 
     public double getSaldo() {

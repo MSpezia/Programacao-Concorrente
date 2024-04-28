@@ -13,14 +13,25 @@ public class Funcionario extends Thread{
 		this.banco = banco;
 	}
 	
-	public void receberSalario() {
-		double valorInvestimento = contaFuncionario.getSaldo() * 0.2;
-		System.out.println(contaFuncionario.getSaldo());
-		banco.transferir(contaFuncionario, contaInvestimento, valorInvestimento);
-		foiPago = true;
+	//Sistema para investir o dinheiro ganho
+	public void run() {
+		if(contaFuncionario.getSaldo() > 0) {
+			double valorInvestimento = contaFuncionario.getSaldo() * 0.2;
+			System.out.println(contaFuncionario.getSaldo());
+			banco.transferir(contaFuncionario, contaInvestimento, valorInvestimento);
+			foiPago = true;
+		}
 	}
 	
 	
+	public Conta getContaInvestimento() {
+		return contaInvestimento;
+	}
+
+	public void setContaInvestimento(Conta contaInvestimento) {
+		this.contaInvestimento = contaInvestimento;
+	}
+
 	public boolean isFoiPago() {
 		return foiPago;
 	}
