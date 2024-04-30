@@ -41,7 +41,9 @@ public class Main {
         	funcionariosLoja1[i].start();
 			funcionariosLoja2[i].start();
         }
-        //a
+       
+
+        
 		//Imprimindo as informações finais
         System.out.println("\nSaldo das Lojas");
         System.out.println("Loja 1: R$ " + lojas[0].getContaLoja().getSaldo());
