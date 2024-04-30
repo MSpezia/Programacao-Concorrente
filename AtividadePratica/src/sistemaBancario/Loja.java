@@ -13,7 +13,7 @@ public class Loja {
 	}
 	
 	//Sistema para pagar os funcionários
-	public void pagarSalario() {
+	public synchronized void pagarSalario() {
 		for(Funcionario funcionario : funcionarios) {
 			if(contaLoja.getSaldo() >= 1400) {
 				if (!funcionario.isFoiPago()) {
