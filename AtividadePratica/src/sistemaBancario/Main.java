@@ -42,6 +42,14 @@ public class Main {
 			funcionariosLoja2[i].start();
         }
        
+        for (Cliente cliente : clientes) {
+            try {
+            	cliente.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        
 
 		//Imprimindo as informações finais
         System.out.println("\nSaldo das Lojas");
