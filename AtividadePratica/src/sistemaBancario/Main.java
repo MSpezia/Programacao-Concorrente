@@ -43,7 +43,6 @@ public class Main {
         }
        
 
-        //c
 		//Imprimindo as informações finais
         System.out.println("\nSaldo das Lojas");
         System.out.println("Loja 1: R$ " + lojas[0].getContaLoja().getSaldo());

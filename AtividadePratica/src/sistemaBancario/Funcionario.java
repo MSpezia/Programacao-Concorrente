@@ -17,7 +17,6 @@ public class Funcionario extends Thread{
 	public void run() {
 		if(contaFuncionario.getSaldo() > 0) {
 			double valorInvestimento = contaFuncionario.getSaldo() * 0.2;
-			System.out.println(contaFuncionario.getSaldo());
 			banco.transferir(contaFuncionario, contaInvestimento, valorInvestimento);
 			foiPago = true;
 		}
