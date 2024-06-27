@@ -37,10 +37,10 @@ public class Main {
         
 
         // Versões do experimento
-        runExperiment(capitais);
+        ExperimentOneThread(capitais);
     }
 
-    private static void runExperiment(String[][] capitais) throws Exception {
+    private static void ExperimentOneThread(String[][] capitais) throws Exception {
         long startTime = System.currentTimeMillis();
         
         for (int i = 0; i < capitais.length; i++) {
