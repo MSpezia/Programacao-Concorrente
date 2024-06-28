@@ -27,7 +27,7 @@ public class FetchWeatherData {
         
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         JSONObject jsonResponse = new JSONObject(response.body());
-        System.out.println("Response JSON for " + city + ": " + jsonResponse.toString());
+        //System.out.println("Response JSON for " + city + ": " + jsonResponse.toString());
         new ProcessWeatherData().processWeatherData(city, jsonResponse);
     }
 }

@@ -1,8 +1,11 @@
 package sistema.ATSN3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
         // Lista de capitais com suas latitudes e longitudes
         String[][] capitais = {
         		{"Aracaju", "-10.9167" , "-37.05"},
@@ -35,9 +38,10 @@ public class Main {
             
         };
         
-
         // Versões do experimento
-        ExperimentOneThread(capitais);
+        //ExperimentOneThread(capitais);
+        ExperimentThreeThread(capitais);
+        
     }
 
     private static void ExperimentOneThread(String[][] capitais) throws Exception {
@@ -59,6 +63,40 @@ public class Main {
         
         long endTime = System.currentTimeMillis();
         System.out.println("Time taken with 1 thread: " + (endTime - startTime) + "ms");
+    }
+    
+    private static void ExperimentThreeThread(String[][] capitais) {
+    	int quantidadeRequisicao = 9;
+        int numeroThreads = 3; 
+        List<String[]> listaCapitais = new ArrayList<String[]>();
+		int index = 0;
+
+		ExperimentThreeThreads[] threads = new ExperimentThreeThreads[numeroThreads];
+        for (int i = 0; i < numeroThreads; i++) {
+        	while(index < (quantidadeRequisicao * (i + 1))) {
+        		listaCapitais.add(capitais[index]);
+                index ++;
+            }
+            threads[i] = new ExperimentThreeThreads(listaCapitais);
+            listaCapitais.clear();
+        }
+        for (ExperimentThreeThreads thread : threads) {
+            thread.start();
+        }
+        for (ExperimentThreeThreads thread : threads) {
+        	try {
+                // Aguarda a thread terminar
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            };
+        }
+        long tempo = 0;
+        for (ExperimentThreeThreads thread : threads) {
+            tempo += thread.getTempo();
+        }
+        System.out.println("Time taken with 3 thread: " + tempo + "ms");
+        
     }
 
     
