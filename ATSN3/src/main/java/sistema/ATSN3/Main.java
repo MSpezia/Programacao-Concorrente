@@ -55,19 +55,19 @@ public class Main {
         List<String[]> listaCapitais = new ArrayList<String[]>();
 		int index = 0;
 
-		ExperimentThreeThreads[] threads = new ExperimentThreeThreads[numeroThreads];
+		Threads[] threads = new Threads[numeroThreads];
         for (int i = 0; i < numeroThreads; i++) {
         	while(index < (quantidadeRequisicao * (i + 1))) {
         		listaCapitais.add(capitais[index]);
                 index ++;
             }
-            threads[i] = new ExperimentThreeThreads(listaCapitais);
+            threads[i] = new Threads(listaCapitais);
             listaCapitais.clear();
         }
-        for (ExperimentThreeThreads thread : threads) {
+        for (Threads thread : threads) {
             thread.start();
         }
-        for (ExperimentThreeThreads thread : threads) {
+        for (Threads thread : threads) {
         	try {
                 // Aguarda a thread terminar
                 thread.join();
@@ -76,11 +76,10 @@ public class Main {
             };
         }
         long tempo = 0;
-        for (ExperimentThreeThreads thread : threads) {
+        for (Threads thread : threads) {
             tempo += thread.getTempo();
         }
         return tempo;
-        //System.out.println("Time taken with "+ numeroThreads +" thread: " + tempo + "ms");
         
     }
     

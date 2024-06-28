@@ -2,13 +2,13 @@ package sistema.ATSN3;
 
 import java.util.List;
 
-public class ExperimentThreeThreads extends Thread{
+public class Threads extends Thread{
 	
 	private String[][] capitais;
 	private long tempo = 0;
 
 
-	public ExperimentThreeThreads(List<String[]> listaCapitais) {
+	public Threads(List<String[]> listaCapitais) {
 		this.capitais = converteListaParaArray(listaCapitais);
 	}
 	
