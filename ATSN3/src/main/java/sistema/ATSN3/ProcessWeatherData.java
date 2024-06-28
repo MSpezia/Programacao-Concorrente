@@ -2,7 +2,7 @@ package sistema.ATSN3;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +26,7 @@ public class ProcessWeatherData {
         JSONArray temperatureArray = hourlyData.getJSONArray("temperature_2m");
 
         // Estrutura para armazenar as temperaturas por dia
-        Map<String, List<Double>> dailyTemperatures = new HashMap<>();
+        Map<String, List<Double>> dailyTemperatures = new LinkedHashMap<>();
 
         for (int i = 0; i < temperatureArray.length(); i++) {
             String datetime = hourlyData.getJSONArray("time").getString(i);
@@ -37,7 +37,7 @@ public class ProcessWeatherData {
         }
 
         // Calcular média, mínima e máxima por dia
-        Map<String, Double[]> dailyStats = new HashMap<>();
+        Map<String, Double[]> dailyStats = new LinkedHashMap<>();
         for (String date : dailyTemperatures.keySet()) {
             List<Double> temps = dailyTemperatures.get(date);
             double min = Collections.min(temps);
