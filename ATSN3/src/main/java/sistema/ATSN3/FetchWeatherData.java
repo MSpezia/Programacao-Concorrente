@@ -7,7 +7,7 @@ import java.net.http.HttpResponse;
 import org.json.JSONObject;
 
 public class FetchWeatherData {
-	
+	//link da API
 	private static final String API_URL = "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&start_date=%s&end_date=%s&hourly=temperature_2m";
 	
 	public FetchWeatherData() {
@@ -19,7 +19,7 @@ public class FetchWeatherData {
         String startDate = "2024-01-01";
         String endDate = "2024-01-31";
         String url = String.format(API_URL, latitude, longitude, startDate, endDate);
-
+        //Requicição para a API
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                                          .uri(URI.create(url))
@@ -27,7 +27,6 @@ public class FetchWeatherData {
         
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         JSONObject jsonResponse = new JSONObject(response.body());
-        //System.out.println("Response JSON for " + city + ": " + jsonResponse.toString());
         new ProcessWeatherData().processWeatherData(city, jsonResponse);
     }
 }

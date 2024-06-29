@@ -31,6 +31,7 @@ public class Threads extends Thread{
         for (int i = 0; i < capitais.length; i++) {
             final int index = i;
                 try {
+                	//separa a lista de capitais para mandar na requisição http
                     String city = capitais[index][0];
                     String latitude = capitais[index][1];
                     String longitude = capitais[index][2];

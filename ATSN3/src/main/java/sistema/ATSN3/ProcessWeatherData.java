@@ -15,7 +15,7 @@ public class ProcessWeatherData {
 		
 	}
 	
-	public void processWeatherData(String city, JSONObject jsonData) {
+	public synchronized void processWeatherData(String city, JSONObject jsonData) {
         // Verifique se o objeto "hourly" existe
         if (!jsonData.has("hourly")) {
             System.out.println("No hourly data found for " + city);
