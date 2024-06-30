@@ -5,7 +5,6 @@ import java.util.List;
 public class Threads extends Thread{
 	
 	private String[][] capitais;
-	private long tempo = 0;
 
 
 	public Threads(List<String[]> listaCapitais) {
@@ -44,13 +43,4 @@ public class Threads extends Thread{
         
         
 	}
-	
-	public long getTempo() {
-		return tempo;
-	}
-
-	public void setTempo(long tempo) {
-		this.tempo = tempo;
-	}
-	
 }

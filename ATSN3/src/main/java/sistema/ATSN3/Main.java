@@ -41,7 +41,7 @@ public class Main {
         };
         
         long[] tempo = new long[10];
-        
+        //Selecionar a versão do experimento
         System.out.println("Qual versão deseja testar? (1,3,9 ou 27)");
         int numeroThreads = s.nextInt();
         
@@ -80,7 +80,9 @@ public class Main {
             threads[i] = new Threads(listaCapitais);
             listaCapitais.clear();
         }
+        //Começa a contagem de tempo
         long startTime = System.currentTimeMillis();
+        //Inicia as threads
         for (Threads thread : threads) {
             thread.start();
         }
@@ -92,7 +94,9 @@ public class Main {
                 e.printStackTrace();
             };
         }
+        //Termina a contagem de tempo
         long endTime = System.currentTimeMillis();
+        //Calcula o tempo
         long tempo = endTime - startTime;
 
         return tempo;

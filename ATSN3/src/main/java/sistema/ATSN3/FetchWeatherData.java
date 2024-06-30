@@ -7,7 +7,7 @@ import java.net.http.HttpResponse;
 import org.json.JSONObject;
 
 public class FetchWeatherData {
-	//link da API
+	//Link da API
 	private static final String API_URL = "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&start_date=%s&end_date=%s&hourly=temperature_2m";
 	
 	public FetchWeatherData() {
