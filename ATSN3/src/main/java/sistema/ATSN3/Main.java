@@ -2,10 +2,12 @@ package sistema.ATSN3;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) throws Exception {
+		Scanner s = new Scanner(System.in);
         // Lista de capitais com suas latitudes e longitudes
         String[][] capitais = {
         		{"Aracaju", "-10.9167" , "-37.05"},
@@ -38,16 +40,29 @@ public class Main {
             
         };
         
-        long[] tempo = new long[4];
-        // Versões do experimento
-        tempo[0] = runExperiment(capitais, 1);
-        tempo[1] = runExperiment(capitais, 3);
-        tempo[2] = runExperiment(capitais, 9);
-        tempo[3] = runExperiment(capitais, 27);
+        long[] tempo = new long[10];
         
-        for(int i = 0; i < 4; i++) {
-        	System.out.println("Time taken with "+ (int)Math.pow(3, i) +" thread: " + tempo[i] + "ms");
+        System.out.println("Qual versão deseja testar? (1,3,9 ou 27)");
+        int numeroThreads = s.nextInt();
+        
+        if(numeroThreads != 1 && numeroThreads != 3 && numeroThreads != 9 && numeroThreads != 27) {
+        	System.out.println("Quantidade de threads invalida.");
+        	System.exit(0);
         }
+        
+        for(int i = 0; i < 10; i++) {
+        	tempo[i] = runExperiment(capitais, numeroThreads);
+        }
+        
+
+        long soma = 0;
+        for(int i = 0; i < 10; i++) {
+        	System.out.println("Tempo tomado na tentativa " + (i+1) + ": " + tempo[i] + "ms");
+        	soma += tempo[i];
+        }
+        long media = soma/10;
+        System.out.println("Media do tempo tomado com " + numeroThreads + " threads: " + media + " ms");
+        
         
     }
     
@@ -65,6 +80,7 @@ public class Main {
             threads[i] = new Threads(listaCapitais);
             listaCapitais.clear();
         }
+        long startTime = System.currentTimeMillis();
         for (Threads thread : threads) {
             thread.start();
         }
@@ -76,10 +92,9 @@ public class Main {
                 e.printStackTrace();
             };
         }
-        long tempo = 0;
-        for (Threads thread : threads) {
-            tempo += thread.getTempo();
-        }
+        long endTime = System.currentTimeMillis();
+        long tempo = endTime - startTime;
+
         return tempo;
         
     }

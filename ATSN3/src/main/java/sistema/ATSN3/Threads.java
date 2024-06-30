@@ -26,7 +26,7 @@ public class Threads extends Thread{
 	
 	@Override
 	public void run() {
-		long startTime = System.currentTimeMillis();
+
         
         for (int i = 0; i < capitais.length; i++) {
             final int index = i;
@@ -35,7 +35,7 @@ public class Threads extends Thread{
                     String city = capitais[index][0];
                     String latitude = capitais[index][1];
                     String longitude = capitais[index][2];
-                    System.out.printf("Fetching data for %s (Lat: %s, Lon: %s)%n", city, latitude, longitude);
+                    System.out.printf("Buscando data para %s (Lat: %s, Lon: %s)%n", city, latitude, longitude);
                     new FetchWeatherData().fetchAndProcessWeatherData(city, latitude, longitude);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -43,9 +43,6 @@ public class Threads extends Thread{
         }
         
         
-        long endTime = System.currentTimeMillis();
-        setTempo(endTime - startTime);
-        //System.out.println("Time taken with 3 thread: " + (endTime - startTime) + "ms");
 	}
 	
 	public long getTempo() {
