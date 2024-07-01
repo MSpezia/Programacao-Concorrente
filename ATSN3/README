@@ -2,6 +2,6 @@ Trabalho ATSN3
 
 Aluno: Matheus Spezia Freire Lorenz UC21103938
 
-Trabalho que realiza requisições HTTP para coleta e processamento de dados climáticos das 27 capitais brasileiras durante janeiro de 2024.
+Trabalho que realiza requisições HTTP para coleta e processamento de dados climáticos das 27 capitais brasileiras durante janeiro de 2024 com 1,3,9 ou 27 threads e depois calcula o tempo de execução.
 
 Para executa-lo, abra como um projeto Maven no Eclipse e rode a Main
